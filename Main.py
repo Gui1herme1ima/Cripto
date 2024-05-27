@@ -63,3 +63,4 @@ if __name__ == "__main__":
     Matriz.recebeLista(posicaoNoAlfabeto(entradaConvEmChar), contadorVogais, contadorConsoantes,
                        verificarMaiorLetra(entradaConvEmChar))
     Matriz.imprimirMatriz()
+    Matriz.determinanteMatriz()
