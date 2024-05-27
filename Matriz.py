@@ -2,14 +2,22 @@
 #(Quant. vogais, Letra c/ maior valor, Quant. Consoantes)
 #(AntiPenultima letra, Penúltima Letra , Última letra)
 
-from Main import entradaConvEmChar
-primeiraLetra=0; segundaLetra=1; terceiraLetra=2
-quantVogais=3; letraMaiorVal=4; quantConsoantes=5
-antPenultimaLetra=6; penultimaLetra=7; ultimaLetra=8;
-
 matrizCripto = [
-    [primeiraLetra, segundaLetra, terceiraLetra],
-    [quantVogais, letraMaiorVal, quantConsoantes],
-    [antPenultimaLetra, penultimaLetra, ultimaLetra]
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
 ]
 
+def recebeLista(lista, quantVog, quantCons):
+    print(quantVog)
+    print(quantCons)
+    matrizCripto[0][0] = int(lista[0]) #Primeira Letra
+    matrizCripto[0][1] = int(lista[1]) #Segunda Letra
+    matrizCripto[0][2] = int(lista[2]) #Terceira Letra
+
+    matrizCripto[2][0] = int(lista[-3])  # AntiPenúltima Letra
+    matrizCripto[2][1] = int(lista[-2])  # Penúltima Letra
+    matrizCripto[2][2] = int(lista[-1])  # Última Letra
+
+def imprimirMatriz():
+    print(matrizCripto)

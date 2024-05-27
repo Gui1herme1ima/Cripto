@@ -1,4 +1,5 @@
 import Alfabeto
+import Matriz
 def posicao_no_alfabeto(lista):
     # Convertemos a letra para maiúscula para lidar com maiúsculas e minúsculas de forma uniforme
     listaPosicao = []
@@ -7,11 +8,9 @@ def posicao_no_alfabeto(lista):
 
         if char.isdigit():
             listaPosicao.append(int(char))
-        elif char in {',','.',';',':','(',')','{','}','[',']'}:
-            print(char)
+        elif char in {',','.',';',':','(',')','{','}','[',']','@','#','$','%','&','*','?','!','_','=','+','-'}:
             listaPosicao.append(0)
         elif char == 'Ç':
-            print(char)
             listaPosicao.append(3)
         else:
             for i in range(26):  # Existem 26 letras no alfabeto inglês
@@ -19,19 +18,27 @@ def posicao_no_alfabeto(lista):
                 if char == letra_atual:
                     listaPosicao.append(i+1)
 
-    print(listaPosicao)
+    return listaPosicao
 
-def processar_lista_de_chars(lista):
-    listaPosicao = []
+contadorVogais = 0
+contadorConsoantes = 0
+def verificarVogaisEConsoantes(lista):
+    global contadorVogais
+    global contadorConsoantes
     for char in lista:
-        listaPosicao.append(posicao_no_alfabeto(char))
-    print(listaPosicao)
+        char = char.upper()
+        if char in {',', '.', ';', ':', '(', ')', '{', '}', '[', ']', ' ', 'Ç', '@','#','$','%','&','*','?','!','_','=','+','-'}:
+            break
+        elif char in {'A','E','I','O','U'}:
+            contadorVogais = contadorVogais + 1
+        else:
+            contadorConsoantes = contadorConsoantes + 1
 
 
 
-
-entrada = input("Digite o que deseja criptografar: ")
-
-entradaConvEmChar = list(entrada)
-
-posicao_no_alfabeto(entradaConvEmChar)
+if __name__ == "__main__":
+    entrada = input("Digite o que deseja criptografar: ")
+    entradaConvEmChar = list(entrada)
+    verificarVogaisEConsoantes(entradaConvEmChar)
+    Matriz.recebeLista(posicao_no_alfabeto(entradaConvEmChar), contadorVogais, contadorConsoantes)
+    Matriz.imprimirMatriz()
