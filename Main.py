@@ -3,7 +3,6 @@ import Matriz
 
 
 def posicaoNoAlfabeto(lista):
-
     listaPosicao = []
     for char in lista:
         char = char.upper()
@@ -43,8 +42,20 @@ def verificarVogaisEConsoantes(lista):
 
 
 def verificarMaiorLetra(lista):
-    maiorLetra = max(lista, key=lambda letra: letra.upper())
+    letrasApenas = [letra for letra in lista if letra.isalpha() and letra.upper() >= 'A' and letra.upper() <= 'Z']
+    maiorLetra = max(letrasApenas, key=lambda letra: letra.upper())
     maiorLetra = maiorLetra.upper()
+    if maiorLetra in {'Á', 'À', 'Ã', 'Â'}:
+        maiorLetra = 'A'
+    elif maiorLetra in {'É', 'Ê'}:
+        maiorLetra = 'E'
+    elif maiorLetra in {'Í', 'Ì', 'Î'}:
+        maiorLetra = 'I'
+    elif maiorLetra in {'Ó', 'Ò', 'Õ', 'Ô'}:
+        maiorLetra = 'O'
+    elif maiorLetra in {'Ú', 'Û', 'Ü'}:
+        maiorLetra = 'U'
+
     posicaoMaiorLetra = ord(maiorLetra) - ord('A') + 1
     return posicaoMaiorLetra
 

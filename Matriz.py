@@ -21,6 +21,7 @@ def recebeLista(lista, quantVog, quantCons, MaiorLetra):
     matrizCripto[2][2] = int(lista[-1])  # a33 - Última Letra
 
 def determinanteMatriz():
+    from Alfabeto import tamanhoAlfabeto
     #a11*a22*a33 + a12*a23*a31 + a13*a21*a32 - a13*a22*a31 - a11*a23*a32 - a12*a21*a33
     a11a22a33 = matrizCripto[0][0] * matrizCripto[1][1] * matrizCripto[2][2]
     a12a23a31 = matrizCripto[0][1] * matrizCripto[1][2] * matrizCripto[2][0]
@@ -29,8 +30,9 @@ def determinanteMatriz():
     a11a23a32 = matrizCripto[0][0] * matrizCripto[1][2] * matrizCripto[2][1]
     a12a21a33 = matrizCripto[0][1] * matrizCripto[1][0] * matrizCripto[2][2]
 
-    determinante = a11a22a33 + a12a23a31 + a13a21a32 - a13a22a31 - a11a23a32 -a12a21a33
+    determinante = (a11a22a33 + a12a23a31 + a13a21a32 - a13a22a31 - a11a23a32 -a12a21a33) / tamanhoAlfabeto
     print(determinante)
+    return determinante
 
 def imprimirMatriz():
     print(matrizCripto)
