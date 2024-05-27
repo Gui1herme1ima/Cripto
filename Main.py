@@ -7,9 +7,11 @@ def posicao_no_alfabeto(lista):
 
         if char.isdigit():
             listaPosicao.append(int(char))
-        elif char == ',' or '.' or ';' or ':' or '(' or ')' or '{' or '}' or '[' or ']':
+        elif char in {',','.',';',':','(',')','{','}','[',']'}:
+            print(char)
             listaPosicao.append(0)
-        elif char == 'ç' or 'Ç':
+        elif char == 'Ç':
+            print(char)
             listaPosicao.append(3)
         else:
             for i in range(26):  # Existem 26 letras no alfabeto inglês
