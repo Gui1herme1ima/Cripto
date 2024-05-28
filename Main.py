@@ -1,6 +1,6 @@
 import Alfabeto
 import Matriz
-
+import Cripto
 
 def posicaoNoAlfabeto(lista):
     listaPosicao = []
@@ -74,4 +74,4 @@ if __name__ == "__main__":
     Matriz.recebeLista(posicaoNoAlfabeto(entradaConvEmChar), contadorVogais, contadorConsoantes,
                        verificarMaiorLetra(entradaConvEmChar))
     Matriz.imprimirMatriz()
-    Matriz.determinanteMatriz()
+    Cripto.recebeEntrada(entradaConvEmChar)

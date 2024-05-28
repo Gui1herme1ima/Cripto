@@ -91,6 +91,13 @@ chaves9 = ['oP3nBf5gJl', 'T9mCzAqW7s', 'rL2yXwG6hV', 'kU8jDc4vNt', '5iSxR7zFpQ',
             'W3sXtZ8lDj', '7oKlQ9fA4b', 'aM6nGqV8iC']
 
 tamanhoAlfabeto = len(alfabeto0)
-todasAsChaves = chaves1 + chaves2 + chaves3 + chaves4 + chaves5 + chaves6 + chaves7 + chaves8 + chaves9
 
-print(todasAsChaves)
+todosOsAlfabetos = [alfabeto0, alfabeto1, alfabeto2, alfabeto3, alfabeto4, alfabeto5, alfabeto6, alfabeto7, alfabeto8,
+                    alfabeto9]
+
+def definirAlfabeto():
+    numeroAlfabetoEscolhido = random.randint(0,9)
+    alfabetoEscolhido = todosOsAlfabetos[numeroAlfabetoEscolhido]
+    print(alfabetoEscolhido)
+    print(f'o alfabeto escolhido foi o alfabeto{numeroAlfabetoEscolhido}')
+    return alfabetoEscolhido
