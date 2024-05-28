@@ -10,7 +10,7 @@ def posicaoNoAlfabeto(lista):
         if char.isdigit():
             listaPosicao.append(int(char))
         elif char in {',', '.', ';', ':', '(', ')', '{', '}', '[', ']', '@', '#', '$', '%', '&', '*', '?', '!', '_',
-                      '=', '+', '-', '"'}:
+                      '=', '+', '-', '"', ' '}:
             listaPosicao.append(0)
         elif char == 'Ç':
             listaPosicao.append(3)
@@ -33,7 +33,7 @@ def verificarVogaisEConsoantes(lista):
     for char in lista:
         char = char.upper()
         if char in {',', '.', ';', ':', '(', ')', '{', '}', '[', ']', ' ', 'Ç', '@', '#', '$', '%', '&', '*', '?', '!',
-                    '_', '=', '+', '-', '"'}:
+                    '_', '=', '+', '-', '"', ' '}:
             break
         elif char in {'A', 'E', 'I', 'O', 'U'}:
             contadorVogais = contadorVogais + 1
