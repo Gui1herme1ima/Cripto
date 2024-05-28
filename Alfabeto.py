@@ -94,10 +94,27 @@ tamanhoAlfabeto = len(alfabeto0)
 
 todosOsAlfabetos = [alfabeto0, alfabeto1, alfabeto2, alfabeto3, alfabeto4, alfabeto5, alfabeto6, alfabeto7, alfabeto8,
                     alfabeto9]
+todasAsChaves = [chaves0, chaves1, chaves2, chaves3, chaves4, chaves5, chaves6, chaves7, chaves8, chaves9]
 
+numeroAlfabetoEscolhido = 0
 def definirAlfabeto():
-    numeroAlfabetoEscolhido = random.randint(0,9)
+    global numeroAlfabetoEscolhido
+    numeroAlfabetoEscolhido = random.randint(0, 9)
     alfabetoEscolhido = todosOsAlfabetos[numeroAlfabetoEscolhido]
     print(alfabetoEscolhido)
     print(f'o alfabeto escolhido foi o alfabeto{numeroAlfabetoEscolhido}')
+
+    grupoDeChavesEscolhido = todasAsChaves[numeroAlfabetoEscolhido]
+    numeroChaveEscolhida = random.randint(0,9)
+    chaveEscolhida = grupoDeChavesEscolhido[numeroChaveEscolhida]
+
     return alfabetoEscolhido
+
+def definirChave():
+    global numeroAlfabetoEscolhido
+    grupoDeChavesEscolhido = todasAsChaves[numeroAlfabetoEscolhido]
+    numeroChaveEscolhida = random.randint(0, 9)
+    chaveEscolhida = grupoDeChavesEscolhido[numeroChaveEscolhida]
+    print(chaveEscolhida)
+
+    return chaveEscolhida
