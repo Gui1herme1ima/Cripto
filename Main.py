@@ -73,5 +73,5 @@ if __name__ == "__main__":
     verificarVogaisEConsoantes(entradaConvEmChar)
     Matriz.recebeLista(posicaoNoAlfabeto(entradaConvEmChar), contadorVogais, contadorConsoantes,
                        verificarMaiorLetra(entradaConvEmChar))
-    Matriz.imprimirMatriz()
+    #Matriz.imprimirMatriz()
     Cripto.recebeEntrada(entradaConvEmChar)

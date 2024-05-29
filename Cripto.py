@@ -1,11 +1,12 @@
 from Matriz import determinanteMatriz
-from Alfabeto import definirAlfabeto
-from Alfabeto import definirChave
+from Alfabeto import Alfabeto
+from Alfabeto import Codigo
 def recebeEntrada(lista):
     entrada = lista
-    alfabeto = definirAlfabeto()
-    chave = definirChave()
+    alfabeto = Alfabeto()
     listaPalavraCriptografada = []
+
+    chave = str(Codigo()) + "/" + str(determinanteMatriz())
 
     for letra in entrada:
 
@@ -14,6 +15,9 @@ def recebeEntrada(lista):
             novoIndice = int(indiceIncial + determinanteMatriz()) % len(alfabeto)
             listaPalavraCriptografada.append(alfabeto[novoIndice])
 
-            palavraCriptografada = str(listaPalavraCriptografada)
+            palavraCriptografada = ''.join(listaPalavraCriptografada)
 
-    print(f' A palavra criptografada é: {palavraCriptografada}')
+    #SAÍDA:
+
+    print(f'Palavra Criptografada: {palavraCriptografada}')
+    print(f'Código: {chave}')

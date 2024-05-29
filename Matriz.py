@@ -1,6 +1,7 @@
 #(Primeira letra, Segunda letra, terceira letra)
 #(Quant. vogais, Letra c/ maior valor, Quant. Consoantes)
 #(AntiPenultima letra, Penúltima Letra , Última letra)
+import random
 
 matrizCripto = [
     [0, 0, 0],
@@ -30,9 +31,13 @@ def determinanteMatriz():
     a11a23a32 = matrizCripto[0][0] * matrizCripto[1][2] * matrizCripto[2][1]
     a12a21a33 = matrizCripto[0][1] * matrizCripto[1][0] * matrizCripto[2][2]
 
-    determinante = (a11a22a33 + a12a23a31 + a13a21a32 - a13a22a31 - a11a23a32 -a12a21a33) / tamanhoAlfabeto
-    print(determinante)
+    determinante = (a11a22a33 + a12a23a31 + a13a21a32 - a13a22a31 - a11a23a32 -a12a21a33) % tamanhoAlfabeto
+
+    if determinante == 0:
+        determinante = random.randint(-tamanhoAlfabeto+1, tamanhoAlfabeto-1)
+
     return determinante
 
 def imprimirMatriz():
-    print(matrizCripto)
+    print(f'Determinante: {determinanteMatriz()}')
+    print(f'Matriz: {matrizCripto}')
