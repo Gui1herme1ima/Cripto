@@ -1,67 +1,21 @@
 import Alfabeto
 import Matriz
 import Cripto
-
-def posicaoNoAlfabeto(lista):
-    listaPosicao = []
-    for char in lista:
-        char = char.upper()
-
-        if char.isdigit():
-            listaPosicao.append(int(char))
-        elif char in {',', '.', ';', ':', '(', ')', '{', '}', '[', ']', '@', '#', '$', '%', '&', '*', '?', '!', '_',
-                      '=', '+', '-', '"', ' '}:
-            listaPosicao.append(0)
-        elif char == 'Ç':
-            listaPosicao.append(3)
-        else:
-            for i in range(26):
-                letra_atual = chr(ord('A') + i)
-                if char == letra_atual:
-                    listaPosicao.append(i + 1)
-
-    return listaPosicao
+import TratamentoDeListas
 
 
-contadorVogais = 0
-contadorConsoantes = 0
+def menu():
+    return input("O que deseja fazer?\n"
+                 "1 - Criptografar\n"
+                 "2 - Descriptografar\n\n"
+                 "Digite a opção desejada: ")
 
 
-def verificarVogaisEConsoantes(lista):
-    global contadorVogais
-    global contadorConsoantes
-    for char in lista:
-        char = char.upper()
-        if char in {',', '.', ';', ':', '(', ')', '{', '}', '[', ']', ' ', 'Ç', '@', '#', '$', '%', '&', '*', '?', '!',
-                    '_', '=', '+', '-', '"', ' '}:
-            break
-        elif char in {'A', 'E', 'I', 'O', 'U'}:
-            contadorVogais = contadorVogais + 1
-        else:
-            contadorConsoantes = contadorConsoantes + 1
+def continuarCripto():
+    return input("\nDeseja criptografar novamente?\n(S/N)\n")
 
 
-def verificarMaiorLetra(lista):
-    letrasApenas = [letra for letra in lista if letra.isalpha() and letra.upper() >= 'A' and letra.upper() <= 'Z']
-    maiorLetra = max(letrasApenas, key=lambda letra: letra.upper())
-    maiorLetra = maiorLetra.upper()
-    if maiorLetra in {'Á', 'À', 'Ã', 'Â'}:
-        maiorLetra = 'A'
-    elif maiorLetra in {'É', 'Ê'}:
-        maiorLetra = 'E'
-    elif maiorLetra in {'Í', 'Ì', 'Î'}:
-        maiorLetra = 'I'
-    elif maiorLetra in {'Ó', 'Ò', 'Õ', 'Ô'}:
-        maiorLetra = 'O'
-    elif maiorLetra in {'Ú', 'Û', 'Ü'}:
-        maiorLetra = 'U'
-
-    posicaoMaiorLetra = ord(maiorLetra) - ord('A') + 1
-    return posicaoMaiorLetra
-
-
-if __name__ == "__main__":
-
+def criptografar():
     entrada = input("Digite o que deseja criptografar: ")
     entradaConvEmChar = list(entrada)
     if len(entradaConvEmChar) < 2:
@@ -69,9 +23,47 @@ if __name__ == "__main__":
         entradaConvEmChar.append('0')
     elif len(entradaConvEmChar) < 3:
         entradaConvEmChar.append('0')
+    # RecebeLista(lista, quantVog, quantCons, MaiorLetra)
 
-    verificarVogaisEConsoantes(entradaConvEmChar)
-    Matriz.recebeLista(posicaoNoAlfabeto(entradaConvEmChar), contadorVogais, contadorConsoantes,
-                       verificarMaiorLetra(entradaConvEmChar))
-    #Matriz.imprimirMatriz()
+    lista = TratamentoDeListas.posicaoNoAlfabeto(entradaConvEmChar)
+    quantVogais = TratamentoDeListas.contadorVogais
+    quantConsoantes = TratamentoDeListas.contadorConsoantes
+    maiorLetra = TratamentoDeListas.verificarMaiorLetra(entradaConvEmChar)
+
+    TratamentoDeListas.verificarVogaisEConsoantes(entradaConvEmChar)
+    Matriz.recebeLista(lista, quantVogais, quantConsoantes, maiorLetra)
+    # Matriz.imprimirMatriz()
     Cripto.recebeEntrada(entradaConvEmChar)
+
+    continuar = continuarCripto().upper()
+
+    while continuar not in ["S", "N"]:
+        print("Opção inválida! Por favor, digite S ou N.")
+        continuar = continuarCripto().upper()
+
+    if continuar == "S":
+        criptografar()
+    elif continuar == "N":
+        print("Retornando ao menu...")
+        main()
+
+
+def descriptografar():
+    print("Calmae q não fiz essa partekkkkkkkk")
+
+
+def main():
+    inicio = menu()
+
+    while inicio not in ["1", "2"]:
+        print("Opção inválida! Por favor, digite 1 ou 2.")
+        inicio = menu()
+
+    if inicio == "1":
+        criptografar()
+    elif inicio == "2":
+        descriptografar()
+
+
+# Inicia o programa chamando a função main
+main()
