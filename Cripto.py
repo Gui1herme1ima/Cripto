@@ -19,5 +19,5 @@ def recebeEntrada(lista):
 
     #SAÍDA:
 
-    print(f'Palavra Criptografada: {palavraCriptografada}')
-    print(f'Código: {chave}')
+    print(f'Palavra Criptografada:  {palavraCriptografada}')
+    print(f'Chave de criptogarfia:  {chave}')

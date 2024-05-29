@@ -2,7 +2,7 @@ import Alfabeto
 import Matriz
 import Cripto
 import TratamentoDeListas
-
+import Descripto
 
 def menu():
     return input("O que deseja fazer?\n"
@@ -24,7 +24,6 @@ def criptografar():
         entradaConvEmChar.append('0')
     elif len(entradaConvEmChar) < 3:
         entradaConvEmChar.append('0')
-    # RecebeLista(lista, quantVog, quantCons, MaiorLetra)
 
     lista = TratamentoDeListas.posicaoNoAlfabeto(entradaConvEmChar)
     quantVogais = TratamentoDeListas.contadorVogais
@@ -50,8 +49,14 @@ def criptografar():
 
 
 def descriptografar():
-    print("Calmae q não fiz essa partekkkkkkkk")
+    palavraCriptografada = input("Informe o que deseja descriptografar: ")
+    Descripto.PalavraCriptografada(palavraCriptografada)
 
+    chave = input("Informe o a chave de criptografia: ")
+    Descripto.Chave(chave)
+
+    palavraDescriptografada = "teste"
+    print(f'A palavra descriptografada é: {palavraDescriptografada}')
 
 def main():
     inicio = menu()
