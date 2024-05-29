@@ -7,7 +7,8 @@ import TratamentoDeListas
 def menu():
     return input("O que deseja fazer?\n"
                  "1 - Criptografar\n"
-                 "2 - Descriptografar\n\n"
+                 "2 - Descriptografar\n"
+                 "3 - Sair\n\n"
                  "Digite a opção desejada: ")
 
 
@@ -32,7 +33,7 @@ def criptografar():
 
     TratamentoDeListas.verificarVogaisEConsoantes(entradaConvEmChar)
     Matriz.recebeLista(lista, quantVogais, quantConsoantes, maiorLetra)
-    # Matriz.imprimirMatriz()
+    #Matriz.imprimirMatriz()
     Cripto.recebeEntrada(entradaConvEmChar)
 
     continuar = continuarCripto().upper()
@@ -55,14 +56,16 @@ def descriptografar():
 def main():
     inicio = menu()
 
-    while inicio not in ["1", "2"]:
-        print("Opção inválida! Por favor, digite 1 ou 2.")
+    while inicio not in ["1", "2", "3"]:
+        print("Opção inválida! Por favor, digite a Opção correta")
         inicio = menu()
 
     if inicio == "1":
         criptografar()
     elif inicio == "2":
         descriptografar()
+    elif inicio == "3":
+        print("\nAté Mais!")
 
 
 # Inicia o programa chamando a função main

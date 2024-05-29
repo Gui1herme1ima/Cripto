@@ -39,6 +39,10 @@ def verificarVogaisEConsoantes(lista):
 
 def verificarMaiorLetra(lista):
     letrasApenas = [letra for letra in lista if letra.isalpha() and letra.upper() >= 'A' and letra.upper() <= 'Z']
+
+    if not letrasApenas:
+        return 0
+
     maiorLetra = max(letrasApenas, key=lambda letra: letra.upper())
     maiorLetra = maiorLetra.upper()
     if maiorLetra in {'Á', 'À', 'Ã', 'Â'}:
