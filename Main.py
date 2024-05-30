@@ -55,9 +55,6 @@ def descriptografar():
     chave = input("Informe o a chave de criptografia: ")
     Descripto.Chave(chave)
 
-    palavraDescriptografada = "teste"
-    print(f'A palavra descriptografada é: {palavraDescriptografada}')
-
 def main():
     inicio = menu()
 

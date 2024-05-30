@@ -5,14 +5,14 @@ def recebeEntrada(lista):
     entrada = lista
     alfabeto = Alfabeto()
     listaPalavraCriptografada = []
-
-    chave = str(Codigo()) + "/" + str(determinanteMatriz())
+    determinante = determinanteMatriz()
+    chave = str(Codigo()) + "/" + str(determinante)
 
     for letra in entrada:
 
         if letra in alfabeto:
             indiceIncial = alfabeto.index(letra)
-            novoIndice = int(indiceIncial + determinanteMatriz()) % len(alfabeto)
+            novoIndice = int(indiceIncial + determinante) % len(alfabeto)
             listaPalavraCriptografada.append(alfabeto[novoIndice])
 
             palavraCriptografada = ''.join(listaPalavraCriptografada)

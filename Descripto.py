@@ -1,7 +1,21 @@
 import Alfabeto
 palavra = "teste"
 def descriptografar(alfabeto, determinante, palavraCriptografada):
-    print(determinante, palavraCriptografada, alfabeto)
+
+    listaPalavraDescriptografada = []
+    listaPalavraCriptografada = list(palavraCriptografada)
+
+    for caractere in listaPalavraCriptografada:
+
+        if caractere in alfabeto:
+            indiceCriptografado = alfabeto.index(caractere)
+            indiceIncial = int((indiceCriptografado - determinante) % len(alfabeto))
+            listaPalavraDescriptografada.append(alfabeto[indiceIncial])
+
+            palavraDescriptografada = ''.join(listaPalavraDescriptografada)
+
+    print(f'A palavra descriptografada é: {palavraDescriptografada}')
+
 def palavraCriptografada(palavraCriptografada):
     global palavra
     palavra = palavraCriptografada
@@ -15,11 +29,13 @@ def Chave(chave):
     else:
         partes = chave.split('/')
 
-    if len(partes) > 1 and partes[1].isdigit():
-        numero = int(partes[1])
-        codigo = partes[0]
-        determinante = numero
-        verificarChave(codigo, determinante)
+    if len(partes) > 1:
+        numero_str = partes[1]
+        if numero_str.lstrip('-').isdigit():
+            numero = int(numero_str)
+            codigo = partes[0]
+            determinante = numero
+            verificarChave(codigo, determinante)
     else:
         chaveIncorreta()
 def verificarChave(codigo, determinante):
