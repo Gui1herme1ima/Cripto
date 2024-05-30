@@ -22,10 +22,10 @@ def palavraCriptografada(palavraCriptografada):
 
 
 def Chave(chave):
-    global partes, codigo, determinante, deteminanteEncontrada
-    deteminanteEncontrada = False
+    global partes, codigo, determinante
     if not "/" in chave:
         chaveIncorreta()
+        return
     else:
         partes = chave.split('/')
 
@@ -36,8 +36,12 @@ def Chave(chave):
             codigo = partes[0]
             determinante = numero
             verificarChave(codigo, determinante)
+        else:
+            chaveIncorreta()
+            return
     else:
         chaveIncorreta()
+        return
 def verificarChave(codigo, determinante):
     global palavra
     chaveEncontrada = False

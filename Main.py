@@ -15,6 +15,9 @@ def menu():
 def continuarCripto():
     return input("\nDeseja criptografar novamente?\n(S/N)\n")
 
+def continuarDescripto():
+    return input("\nDeseja descriptografar novamente?\n(S/N)\n")
+
 
 def criptografar():
     entrada = input("Digite o que deseja criptografar: ")
@@ -55,6 +58,17 @@ def descriptografar():
     chave = input("Informe o a chave de criptografia: ")
     Descripto.Chave(chave)
 
+    continuar = continuarDescripto().upper()
+
+    while continuar not in ["S", "N"]:
+        print("Opção inválida! Por favor, digite S ou N.")
+        continuar = continuarDescripto().upper()
+
+    if continuar == "S":
+        descriptografar()
+    elif continuar == "N":
+        print("Retornando ao menu...")
+        main()
 def main():
     inicio = menu()
 
