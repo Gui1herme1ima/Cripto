@@ -50,7 +50,7 @@ def criptografar():
 
 def descriptografar():
     palavraCriptografada = input("Informe o que deseja descriptografar: ")
-    Descripto.PalavraCriptografada(palavraCriptografada)
+    Descripto.palavraCriptografada(palavraCriptografada)
 
     chave = input("Informe o a chave de criptografia: ")
     Descripto.Chave(chave)
