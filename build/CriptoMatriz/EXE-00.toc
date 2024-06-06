@@ -94,7 +94,7 @@
  [],
  False,
  False,
- 1717640951,
+ 1717644973,
  [('run.exe',
    'C:\\Users\\GUILHERME\\Documents\\GitHub\\Cripto\\venv\\Lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\run.exe',
    'EXECUTABLE')],

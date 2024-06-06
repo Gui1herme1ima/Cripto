@@ -1,3 +1,4 @@
+import Matriz
 from Matriz import determinanteMatriz
 from Alfabeto import Alfabeto
 from Alfabeto import Codigo
@@ -18,6 +19,7 @@ def recebeEntrada(lista):
             palavraCriptografada = ''.join(listaPalavraCriptografada)
 
     #SAÍDA:
-
+    #print(f'Matriz:  {Matriz.matrizCripto}')
+    #print(f'Determinante:  {determinante}')
     print(f'Palavra Criptografada:  {palavraCriptografada}')
-    print(f'Chave de criptogarfia:  {chave}')
+    print(f'Chave de criptografia:  {chave}')

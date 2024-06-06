@@ -29,13 +29,13 @@ def criptografar():
         entradaConvEmChar.append('0')
 
     lista = TratamentoDeListas.posicaoNoAlfabeto(entradaConvEmChar)
+    TratamentoDeListas.limparVogaisEConsoantes()
+    TratamentoDeListas.verificarVogaisEConsoantes(entradaConvEmChar)
     quantVogais = TratamentoDeListas.contadorVogais
     quantConsoantes = TratamentoDeListas.contadorConsoantes
     maiorLetra = TratamentoDeListas.verificarMaiorLetra(entradaConvEmChar)
 
-    TratamentoDeListas.verificarVogaisEConsoantes(entradaConvEmChar)
     Matriz.recebeLista(lista, quantVogais, quantConsoantes, maiorLetra)
-    #Matriz.imprimirMatriz()
     Cripto.recebeEntrada(entradaConvEmChar)
 
     continuar = continuarCripto().upper()

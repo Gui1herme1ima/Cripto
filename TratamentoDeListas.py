@@ -36,6 +36,12 @@ def verificarVogaisEConsoantes(lista):
         else:
             contadorConsoantes = contadorConsoantes + 1
 
+def limparVogaisEConsoantes():
+    global contadorVogais
+    global contadorConsoantes
+
+    contadorVogais = 0
+    contadorConsoantes = 0
 
 def verificarMaiorLetra(lista):
     letrasApenas = [letra for letra in lista if letra.isalpha() and letra.upper() >= 'A' and letra.upper() <= 'Z']
