@@ -18,9 +18,16 @@ def continuarCripto():
 def continuarDescripto():
     return input("\nDeseja descriptografar novamente?\n(S/N)\n")
 
+def get_non_empty_input(prompt):
+    while True:
+        user_input = input(prompt)
+        if user_input.strip():  # Verifica se o input não é vazio ou só espaços
+            return user_input
+        else:
+            print("Entrada inválida. Por favor, digite algo.\n")
 
 def criptografar():
-    entrada = input("Digite o que deseja criptografar: ")
+    entrada = get_non_empty_input("Digite o que deseja criptografar: ")
     entradaConvEmChar = list(entrada)
     if len(entradaConvEmChar) < 2:
         entradaConvEmChar.append('0')
@@ -52,10 +59,10 @@ def criptografar():
 
 
 def descriptografar():
-    palavraCriptografada = input("Informe o que deseja descriptografar: ")
+    palavraCriptografada = get_non_empty_input("Informe o que deseja descriptografar: ")
     Descripto.palavraCriptografada(palavraCriptografada)
 
-    chave = input("Informe o a chave de criptografia: ")
+    chave = get_non_empty_input("Informe o a chave de criptografia: ")
     Descripto.Chave(chave)
 
     continuar = continuarDescripto().upper()
